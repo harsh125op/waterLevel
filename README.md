@@ -1,29 +1,70 @@
+# Image Processing and Feature Extraction Project
 
+This project focuses on image processing and feature extraction using various algorithms and techniques. The project is organized into multiple Jupyter notebooks, each serving a specific purpose in the overall workflow.
 
+## Project Structure
 
-# Image Feature Extraction and Time Series Prediction
+```
+1_Image_Process_V2.ipynb
+1_Image_Process.ipynb
+2_Image_Algo_Test.ipynb
+3_POC_Feature_Extraction.ipynb
+4_Gen_Dataset.ipynb
+arbitrary/
+data/
+data_1/
+data_2/
+    dataset.csv
+POC Map/
+```
 
-This project focuses on extracting features from images in a video sequence, preprocessing the data, and using it to build a time-series prediction model. The goal is to create a model that can predict future data points by analyzing extracted image features.
+## Notebooks Overview
 
-## Steps and Workflow
+### 1. Image Processing
 
-### 1. Image Preprocessing
-- **Video to Image Sequence Conversion**: Convert a video into a sequence of images with filenames in sequential order (e.g., `1.jpg`, `2.jpg`, ...).
-- **Grayscale Conversion**: Apply grayscale conversion to all images.
-- **Image Feature Extraction**: 
-  - Use image processing techniques like denoising, blurring, and sharpening.
-  - Extract features related to snow (if applicable), using both direct extraction and masking techniques.
+- **1_Image_Process.ipynb**: Initial image processing techniques and experiments.
+- **1_Image_Process_V2.ipynb**: Updated version with refined image processing methods.
+- These Extracts image frames of A Glacier which was sourced from Youtube for Testing , the video can be found [here](https://www.youtube.com/shorts/xiFXn2EcvXk).
 
-### 2. Algorithm Development and Validation
-- **Algorithm Conceptualization**: Design an algorithm to identify and validate extracted features.
-- **Validation**: Ensure the algorithm achieves at least 80% accuracy.
+### 2. Image Algorithm Testing
 
-### 3. Numeric Feature Extraction
-- Extract numeric features from the processed images to create a dataset.
-- Build a function for numeric feature extraction to streamline this process.
+- **2_Image_Algo_Test.ipynb**: Testing various image processing algorithms. This notebook includes:
+  - Loading and displaying images.
+  - Applying thresholding and other preprocessing techniques.
+  - Saving processed images.
 
-### 4. Dataset Creation
-- Use the function created in Step 3 to build a structured numeric dataset for analysis and modeling.
+### 3. Proof of Concept: Feature Extraction
+
+- **3_POC_Feature_Extraction.ipynb**: Extracting features from images. This notebook includes:
+  - Functions to calculate various features such as pixel intensity distribution, convex hull, and image dimensions.
+  - Visualization of features using histograms and plots.
+
+### 4. Generate Dataset
+
+- **4_Gen_Dataset.ipynb**: Generating a dataset by extracting features from a set of images. This notebook includes:
+  - Functions to extract features from images.
+  - Saving the extracted features into a CSV file.
+
+## Key Functions
+
+### Feature Extraction Functions
+
+- `Feature_1(image_path)`: Calculates pixel intensity distribution.
+- `Feature_2(image_path)`: Applies convex hull processing and extracts features.
+- `Feature_3(image_path)`: Combines cropping and feature extraction.
+- `Feature_4()`: Calculates the diagonal length of the image.
+- `Feature_5()`: Returns the width of the image.
+- `Feature_6()`: Returns the height of the image.
+- `Feature_7()`: Calculates threshold and histogram of pixel intensities.
+
+### Utility Functions
+
+- `draw_line(r1, c1, r2, c2)`: Generates pixel coordinates for a straight line between two points.
+- `crop(image_path)`: Applies convex hull processing and crops the region inside the convex hull.
+
+## Dataset Generation
+
+The dataset generation process involves extracting features from images and saving them into a CSV file. The features are extracted using the `Feature` function, which combines multiple feature extraction methods.
 
 ### 5. Data Preparation
 - **Data Import**: Import the dataset created in Step 4.
@@ -46,27 +87,58 @@ This project focuses on extracting features from images in a video sequence, pre
 - **Future Prediction**: Use the chosen model to generate predictions for the next 50 data points.
 - **Model Persistence**: Save the final model using pickling for future use.
 
-## Dependencies
-
-This project requires the following libraries:
-- Python (version 3.x)
-- OpenCV (for image processing)
-- NumPy and Pandas (for data handling)
-- Scikit-learn (for model evaluation and preprocessing)
-- Statsmodels (for ARIMA modeling)
-- TensorFlow/Keras (for LSTM and RNN models)
-
-## Usage
-
-1. Clone the repository.
-2. Follow the image preprocessing steps outlined in the notebook or scripts.
-3. Use the provided functions to extract and preprocess features.
-4. Train and evaluate the model on the dataset.
-5. Run the prediction script to generate future data points.
-
 ## Results
 
 - The Image Segmentation model should be capable of achieving 80%+ accuracy on the validation set.
 - Future data predictions can be generated approximately 50 rows ahead, or else they go for only 10 rows ahead, with validation accuracy for min 85% to 90%.
+
+## How to Run
+
+1. Clone the repository.
+2. Install the required dependencies.
+3. Open the Jupyter notebooks in your preferred environment.
+4. Run the cells to execute the code and generate the dataset.
+
+## Dependencies
+
+- Python 3.x
+- OpenCV
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-image
+- PIL (Pillow)
+- SciPy
+
+## Example Usage
+
+```python
+# Example usage of Feature_1 function
+image_path = "path/to/image.jpg"
+feature_value = Feature_1(image_path)
+print(feature_value)
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a pull request or open an issue if you have any suggestions or improvements.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact
+
+For any queries, reach out to:
+
+- Name: Harsh Mahanti  
+  Email: mahantiharsh@gmail.com
+
+- Name: Roumo Kundu  
+  Email: rjroumo@gmail.com
+
+
+
+
 
 
