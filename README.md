@@ -17,7 +17,11 @@ data_2/
     dataset.csv
 POC Map/
 ```
-
+## TODO LIST
+  - [ ] Relation with water desnity and water quantity with the dataset
+  - [ ] Explore resources for RNN And LSTM
+  - [ ] Explore the codebases for RNN and LSTM
+  
 ## Notebooks Overview
 
 ### 1. Image Processing
